@@ -33,14 +33,12 @@ contract WETHTest is Test {
 
     function test3DepositShouldEmitEvent() public {
         uint256 amount = 100;
-        // deal(address(this), amount);
         vm.expectEmit(true, false, false, true);
-        // this is an error in foundry solidity 0.8.21
-        //this will be fix in 0.8.22
-        // reference: https://github.com/ethereum/solidity/issues/14430
         // emit WETH.Deposit(address(this), amount);
+        // above code will cause error in foundry solidity 0.8.21
+        // this will be fix in 0.8.22
+        // reference: https://github.com/ethereum/solidity/issues/14430
         emit Deposit(address(this), amount);
-        // weth.deposit{value: amount}();
         (bool success, ) = address(weth).call{value: 100}(
             abi.encodeWithSignature("deposit()")
         );
