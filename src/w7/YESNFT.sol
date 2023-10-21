@@ -16,6 +16,7 @@ contract YESNFT is ERC721URIStorage {
         returns (uint256)
     {
         uint256 tokenId = _nextTokenId++;
+        _setTokenURI(tokenId, "ipfs://Qmatro4y1HKUypWMuVWnn6fAzFk2oadAkBZHPmzowK8epN");
         _mint(receiver, tokenId);
         return tokenId;
     }

@@ -30,7 +30,7 @@ contract NFTReceiverTest is Test {
         assertEq(nonft.ownerOf(tokenId), bob);
     }
 
-    function test2ReceiverShouldMintTokenToTokenOwner() public {
+    function test2YESNFTShouldMintTokenToTokenOwner() public {
         uint256 tokenId = yesnft.mintToken(bob);
         assertEq(yesnft.balanceOf(bob), 1);
         assertEq(yesnft.ownerOf(tokenId), bob);
@@ -41,24 +41,19 @@ contract NFTReceiverTest is Test {
         uint256 tokenId = yesnft.mintToken(bob);
         assertEq(yesnft.balanceOf(bob), 1);
         assertEq(yesnft.ownerOf(tokenId), bob);
-        (bool success, ) = address(yesnft).call(
-            abi.encodeWithSignature("safeTransferFrom(address,address,uint256)", bob, address(nftReceiver), tokenId)
-        );
-        require(success, "transferFrom successfully");
+        yesnft.safeTransferFrom(bob, address(nftReceiver), tokenId);
         assertEq(yesnft.balanceOf(bob), 1);
         assertEq(yesnft.ownerOf(tokenId), bob);
         assertEq(nonft.balanceOf(bob), 1);
-        vm.stopPrank(); 
-        }
-    function test4ShouldAcceptNONFT() public{
+        vm.stopPrank();
+    }
+
+    function test4ShouldAcceptNONFT() public {
         vm.startPrank(bob);
         uint256 tokenId = nonft.mintToken(bob);
         assertEq(nonft.balanceOf(bob), 1);
         assertEq(nonft.ownerOf(tokenId), bob);
-        (bool success, ) = address(nonft).call(
-            abi.encodeWithSignature("safeTransferFrom(address,address,uint256)", bob, address(nftReceiver), tokenId)
-        );
-        require(success, "transferFrom successfully");
+        nonft.safeTransferFrom(bob, address(nftReceiver), tokenId);
         assertEq(nonft.balanceOf(bob), 0);
         assertEq(nonft.ownerOf(tokenId), address(nftReceiver));
         assertEq(yesnft.balanceOf(bob), 0);

@@ -39,9 +39,7 @@ contract BlindBoxNFT is ERC721URIStorage {
 
     function mintToken(address receiver) public returns (uint256) {
         uint256 tokenId = randonNumberGenerator();
-        while (_exists(tokenId)) {
-            tokenId = randonNumberGenerator();
-        }
+        require(_ownerOf(tokenId) == address(0), "Token already minted");
         require(currentSupply < totalSupply, "All tokens minted");
         _safeMint(receiver, tokenId);
         currentSupply++;
