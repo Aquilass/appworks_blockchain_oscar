@@ -3,6 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract BlindBoxNFT is ERC721URIStorage {
     uint256 public constant totalSupply = 500;
@@ -24,10 +25,6 @@ contract BlindBoxNFT is ERC721URIStorage {
         return baseURI;
     }
 
-    function setBaseURI(string memory _baseURI) public onlyOwner {
-        baseURI = _baseURI;
-    }
-
     function randonNumberGenerator() public view returns (uint256) {
         uint256 randomNumber = uint256(
             keccak256(
@@ -35,6 +32,14 @@ contract BlindBoxNFT is ERC721URIStorage {
             )
         ) % 500;
         return randomNumber;
+    }
+
+    function _baseURI() internal view virtual override returns (string memory) {
+        return baseURI;
+    }
+
+    function setBaseURI(string memory baseURI_) external onlyOwner {
+        baseURI = baseURI_;
     }
 
     function mintToken(address receiver) public returns (uint256) {
