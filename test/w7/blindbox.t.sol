@@ -27,7 +27,9 @@ contract BlindBoxNFTTest is Test {
     }
 
     function test2BlindBoxNFTShouldChangeBaseURIWhenSetBaseURI() public {
-        string
+        uint256 tokenId = blindBoxNFT.mintToken(bob);
+        assertEq(blindBoxNFT.balanceOf(bob), 1);
+        assertEq(blindBoxNFT.tokenURI(tokenId), "ipfs://QmTc9XH2u3vV2q9m7w6qYR1kZ9f4rKJyPQ8x7MjWfDw7fP/0");
             memory baseURI = "ipfs://QmTc9XH2u3vV2q9m7w6qYR1kZ9f4rKJyPQ8x7MjWfDw7fP";
         assertEq(blindBoxNFT.getBaseURI(), baseURI);
         blindBoxNFT.setBaseURI("ipfs://123");
