@@ -15,7 +15,7 @@ contract BlindBoxNFTTest is Test {
 
     function setUp() public {
         blindBoxNFT = new BlindBoxNFT(
-            "ipfs://QmTc9XH2u3vV2q9m7w6qYR1kZ9f4rKJyPQ8x7MjWfDw7fP/"
+            "ipfs://123/"
         );
         bob = makeAddr("bob");
         alice = makeAddr("alice");
@@ -29,7 +29,7 @@ contract BlindBoxNFTTest is Test {
 
     function test2BlindBoxNFTShouldChangeBaseURIWhenSetBaseURI() public {
         string
-            memory baseURI = "ipfs://QmTc9XH2u3vV2q9m7w6qYR1kZ9f4rKJyPQ8x7MjWfDw7fP/";
+            memory baseURI = "ipfs://123/";
         uint256 tokenId = blindBoxNFT.mintToken(bob);
         assertEq(blindBoxNFT.balanceOf(bob), 1);
         assertEq(
@@ -38,8 +38,8 @@ contract BlindBoxNFTTest is Test {
         );
 
         assertEq(blindBoxNFT.getBaseURI(), baseURI);
-        blindBoxNFT.setBaseURI("ipfs://123/");
-        baseURI = "ipfs://123/";
+        blindBoxNFT.setBaseURI("ipfs://456/");
+        baseURI = "ipfs://456/";
         assertEq(blindBoxNFT.getBaseURI(), baseURI);
         console2.log("tokenURI", blindBoxNFT.tokenURI(tokenId));
         assertEq(
