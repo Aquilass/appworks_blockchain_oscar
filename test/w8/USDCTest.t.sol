@@ -100,4 +100,26 @@ contract USDCV2 is Test {
 
         vm.stopPrank();
     }
+
+    function testShouldBeAbleToIntialedV2Once() public {
+        vm.startPrank(owner);
+        (bool success, ) = usdc.call(
+            abi.encodeWithSignature("upgradeTo(address)", address(usdcv2))
+        );
+        require(success, "upgrade failed");
+        vm.stopPrank();
+        vm.startPrank(user1);
+        address[] memory whitelist = new address[](2);
+        whitelist[0] = user1;
+        whitelist[1] = user2;
+        (bool success_init, ) = usdc.call(
+            abi.encodeWithSignature("initializeV2(address[])", whitelist)
+        );
+        require(success_init, "initialize failed");
+        (bool success_init2, ) = usdc.call(
+            abi.encodeWithSignature("initializeV2(address[])", whitelist)
+        );
+        require(success_init2 == false, "initialize should fail");
+        vm.stopPrank();
+    }
 }
