@@ -292,7 +292,7 @@ interface IERC20 {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 abstract contract AbstractFiatTokenV1 is IERC20 {
     function _approve(
@@ -332,7 +332,7 @@ abstract contract AbstractFiatTokenV1 is IERC20 {
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @notice The Ownable contract has an owner address, and provides basic
@@ -423,7 +423,7 @@ contract Ownable {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @notice Base contract which allows children to implement an emergency stop
@@ -515,7 +515,7 @@ contract Pausable is Ownable {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title Blacklistable Token
@@ -613,7 +613,7 @@ contract Blacklistable is Ownable {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title FiatToken
@@ -1284,7 +1284,7 @@ library SafeERC20 {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 contract Rescuable is Ownable {
     using SafeERC20 for IERC20;
@@ -1361,7 +1361,7 @@ contract Rescuable is Ownable {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title FiatTokenV1_1
@@ -1395,7 +1395,7 @@ contract FiatTokenV1_1 is FiatTokenV1, Rescuable {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 abstract contract AbstractFiatTokenV2 is AbstractFiatTokenV1 {
     function _increaseAllowance(
@@ -1436,7 +1436,7 @@ abstract contract AbstractFiatTokenV2 is AbstractFiatTokenV1 {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title ECRecover
@@ -1511,7 +1511,7 @@ library ECRecover {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title EIP712
@@ -1596,7 +1596,7 @@ library EIP712 {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title EIP712 Domain
@@ -1632,7 +1632,7 @@ contract EIP712Domain {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title EIP-3009
@@ -1873,7 +1873,7 @@ abstract contract EIP3009 is AbstractFiatTokenV2, EIP712Domain {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title EIP-2612
@@ -1957,7 +1957,7 @@ abstract contract EIP2612 is AbstractFiatTokenV2, EIP712Domain {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 /**
  * @title FiatToken V2
@@ -2193,7 +2193,7 @@ contract FiatTokenV2 is FiatTokenV1_1, EIP3009, EIP2612 {
  * SOFTWARE.
  */
 
-pragma solidity 0.6.12;
+pragma solidity ^0.6.12;
 
 // solhint-disable func-name-mixedcase
 

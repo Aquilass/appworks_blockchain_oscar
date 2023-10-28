@@ -17,3 +17,9 @@ $ forge test
 ```shell
 $ forge test --match-path test/w6/**
 ```
+
+#### Test specific mainnet
+
+```shell
+forge test --fork-url: mainnetUrl
+```
