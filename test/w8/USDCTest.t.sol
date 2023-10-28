@@ -101,6 +101,51 @@ contract USDCV2 is Test {
         vm.stopPrank();
     }
 
+    function testOnlyWhitelistCanTransfer() public {
+        vm.startPrank(owner);
+        (bool success, ) = usdc.call(
+            abi.encodeWithSignature("upgradeTo(address)", address(usdcv2))
+        );
+        require(success, "upgrade failed");
+        vm.stopPrank();
+        vm.startPrank(user1);
+        address[] memory whitelist = new address[](2);
+        whitelist[0] = user1;
+        whitelist[1] = user2;
+        (bool success_init, ) = usdc.call(
+            abi.encodeWithSignature("initializeV2(address[])", whitelist)
+        );
+        require(success_init, "initialize failed");
+        vm.stopPrank();
+        vm.startPrank(user1);
+        (bool success_mint, ) = usdc.call(
+            abi.encodeWithSignature("mint(address,uint256)", user1, 100)
+        );
+        require(success_mint, "mint failed");
+        (bool success_transfer_user2, ) = usdc.call(
+            abi.encodeWithSignature("transfer(address,uint256)", user2, 50)
+        );
+        (bool success_transfer_user3, ) = usdc.call(
+            abi.encodeWithSignature("transfer(address,uint256)", user3, 50)
+        );
+        require(success_transfer_user2, "transfer failed");
+        require(success_transfer_user3, "transfer failed");
+        (bool success_check_balance, bytes memory balance) = usdc.call(
+            abi.encodeWithSignature("balanceOf(address)", user2)
+        );
+        require(success_check_balance, "check balance failed");
+        require(abi.decode(balance, (uint256)) == 50, "balance should be 50");
+        console.log("User2 balance", abi.decode(balance, (uint256)));
+        vm.stopPrank();
+        vm.startPrank(user3);
+        (bool success_tranfer_user2, ) = usdc.call(
+            abi.encodeWithSignature("transfer(address,uint256)", user2, 50)
+        );
+        require(success_tranfer_user2 == false, "transfer should fail");
+        require(abi.decode(balance, (uint256)) == 50, "balance should be 50");
+        console.log("User3 balance", abi.decode(balance, (uint256)));
+    }
+
     function testShouldBeAbleToIntialedV2Once() public {
         vm.startPrank(owner);
         (bool success, ) = usdc.call(
