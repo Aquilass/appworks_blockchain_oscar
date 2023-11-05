@@ -37,7 +37,7 @@ contract ERC721AGasOptimizationTest is Test {
         erc721Enumerable.mint(user1);
         vm.stopPrank();
     }
-    function testERC721MultipleMintCost() public{
+    function testERC721AMultipleMintCost() public{
         vm.startPrank(user1);
         erc721a.multipleMint(user1, 30);
         vm.stopPrank();
