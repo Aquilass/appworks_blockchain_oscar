@@ -15,7 +15,7 @@ contract SimpleSwap is ISimpleSwap, ERC20("SimpleSwap", "SSWP") {
     event BurnLiquidity(address indexed sender, uint amountA, uint amountB, address to);
 
     constructor(address _tokenA, address _tokenB) {
-        // check tokenA and tokenB are not contract
+        // check tokenA and tokenB are contract
         require(isContract(_tokenA), "SimpleSwap: TOKENA_IS_NOT_CONTRACT");
         require(isContract(_tokenB), "SimpleSwap: TOKENB_IS_NOT_CONTRACT");
 
@@ -53,6 +53,8 @@ contract SimpleSwap is ISimpleSwap, ERC20("SimpleSwap", "SSWP") {
         liquidity = mintLiquidity(msg.sender);
         emit AddLiquidity(msg.sender, amountA, amountB, liquidity);
     }
+
+    // 
     function _addLiquidity(
         uint256 amountADesired,
         uint256 amountBDesired
@@ -82,15 +84,15 @@ contract SimpleSwap is ISimpleSwap, ERC20("SimpleSwap", "SSWP") {
 
         uint balanceA = ERC20(_tokenA).balanceOf(address(this));
         uint balanceB = ERC20(_tokenB).balanceOf(address(this));
-        uint256 totalSupply = totalSupply();
+        uint256 _totalSupply = totalSupply();
 
         uint amountA = balanceA-reserveA;
         uint amountB = balanceB-reserveB;
 
-        if (totalSupply == 0) {
+        if (_totalSupply == 0) {
             liquidity = Math.sqrt(amountA *amountB);
         } else {
-            liquidity = Math.min(amountA*totalSupply / reserveA, amountB*totalSupply / reserveB);
+            liquidity = Math.min(amountA*_totalSupply / reserveA, amountB*_totalSupply / reserveB);
         }
 
         require(liquidity > 0, "SimpleSwap: INSUFFICIENT_LIQUIDITY_MINTED");
@@ -150,15 +152,19 @@ contract SimpleSwap is ISimpleSwap, ERC20("SimpleSwap", "SSWP") {
             ERC20(tokenA).transferFrom(msg.sender, address(this), amountIn);
             ERC20(tokenB).transfer(msg.sender, amountOut);
         } else {
-            reserveB = reserveB + amountIn;
             reserveA = reserveA - amountOut;
-            ERC20(tokenB).transferFrom(msg.sender, address(this), amountIn);
+            reserveB = reserveB + amountIn;
             ERC20(tokenA).transfer(msg.sender, amountOut);
+            ERC20(tokenB).transferFrom(msg.sender, address(this), amountIn);
         }
         uint256 reserveInAfter = reserveIn + amountIn;
         uint256 reserveOutAfter = reserveOut - amountOut;
         // test_revert_when_k_value_is_not_greater_than_or_eq_original_k_value
-        require(reserveInAfter * reserveOutAfter >= reserveIn * reserveOut, "SimpleSwap: K_VALUE_NOT_GREATER_THAN_OR_EQ_ORIGINAL_K_VALUE");
+        require(
+            // END: ed8c6549bwf9
+            reserveInAfter * reserveOutAfter >= reserveIn * reserveOut,
+            "SimpleSwap: K_VALUE_NOT_GREATER_THAN_OR_EQ_ORIGINAL_K_VALUE"
+        );
 
         emit Swap(msg.sender, tokenIn, tokenOut, amountIn, amountOut);
     }
