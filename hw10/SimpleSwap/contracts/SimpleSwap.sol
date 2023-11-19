@@ -146,6 +146,7 @@ contract SimpleSwap is ISimpleSwap, ERC20("SimpleSwap", "SSWP") {
         uint256 denominator = reserveIn + amountIn;
         amountOut = numerator / denominator;
 
+        
         if (tokenIn == tokenA) {
             reserveA = reserveA + amountIn;
             reserveB = reserveB - amountOut;
