@@ -24,8 +24,8 @@ contract DeployCompound is Script {
         uint256 forkId = vm.createFork(vm.envString("MAINNET_RPC_URL"));
         //create a new fork from sepolia
         // uint256 forkId = vm.createFork(vm.envString("SEPOLIA_RPC_URL"));
-        // vm.selectFork(forkId);
-        // vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
+        vm.selectFork(forkId);
+        vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
 
         // local admin account
