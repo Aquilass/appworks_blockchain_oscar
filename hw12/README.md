@@ -1,66 +1,20 @@
-## Foundry
+## Compound practice
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+### deploy with .env
+change example.env to .env
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+### Deploy to local testnet
+```git bash
+forge script script/compound.s.sol:DeployCompound
 ```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### Deploy to Sepolia testnet
+1. add env variables to .env
+  MAINNET_RPC_URL
+  SEPOLIA_RPC_URL
+  PRIVATE_KEY
+  ETHERSCAN_API_KEY
+  ADMIN_ACCOUNT
+2. run below command
+3. ```git bash
+   forge script script/compound.s.sol:DeployCompound --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvvv
+   ```
