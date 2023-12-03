@@ -12,17 +12,28 @@ import {OscarToken} from "../src/OscarToken.sol";
 import {ComptrollerInterface} from "compound-protocol/ComptrollerInterface.sol";
 import {InterestRateModel} from "compound-protocol/InterestRateModel.sol";
 import {CErc20Delegator} from "compound-protocol/CErc20Delegator.sol";
+
+// script usage:
+// deploy local fork of mainnet
+// forge script script/compound.s.sol:DeployCompound
+// deploy to sepolia ( need to set SEPOLIA_RPC_URL and PRIVATE_KEY and ADMIN_ACCOUNT and Etherscan API key in env )
+// forge script script/compound.s.sol:DeployCompound --rpc-url $SEPOLIA_RPC_URL --broadcast --verify -vvvv
 contract DeployCompound is Script {
     function run() external {
         //create a new fork from mainnet
         uint256 forkId = vm.createFork(vm.envString("MAINNET_RPC_URL"));
-        vm.selectFork(forkId);
-        vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
+        //create a new fork from sepolia
+        // uint256 forkId = vm.createFork(vm.envString("SEPOLIA_RPC_URL"));
+        // vm.selectFork(forkId);
+        // vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
 
-        // admin
+        // local admin account
         address _admin = makeAddr("admin");
         address payable admin = payable(_admin);
+        // sepolia admin account
+        // string memory _admin = vm.envString("ADMIN_ACCOUNT");
+        // address payable admin = payable(vm.parseAddress(_admin));
 
         // oracle
         SimplePriceOracle oracle = new SimplePriceOracle();
