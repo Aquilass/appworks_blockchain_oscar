@@ -4,5 +4,5 @@ pragma solidity ^0.8.13;
 import { ERC20 } from "openzeppelin-contracts/token/ERC20/ERC20.sol";
 
 contract OscarToken is ERC20 {
-    constructor() ERC20("OscarToken", "OTC") {}
+    constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) {}
 }
