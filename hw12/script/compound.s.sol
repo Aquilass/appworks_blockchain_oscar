@@ -22,8 +22,8 @@ import {CToken} from "compound-protocol/CToken.sol";
 contract DeployCompound is Script {
     address oscarToken2Address;
     address oscarTokenAddress;
-    address admin;
-    address oracle;
+    address adminAddress;
+    address oracleAddress;
     address payable cToken1Address;
     address payable cToken2Address;
     address unitrollerAddress;
@@ -39,6 +39,7 @@ contract DeployCompound is Script {
         // local admin account
         address _admin = makeAddr("admin");
         address payable admin = payable(_admin);
+        adminAddress = admin;
         // sepolia admin account
         // string memory _admin = vm.envString("ADMIN_ACCOUNT");
         // address payable admin = payable(vm.parseAddress(_admin));
@@ -46,6 +47,7 @@ contract DeployCompound is Script {
 
         // oracle
         SimplePriceOracle oracle = new SimplePriceOracle();
+        oracleAddress = address(oracle);
         // comptroller
         ComptrollerG7 comptroller = new ComptrollerG7();
         comptroller._setPriceOracle(oracle);
@@ -62,6 +64,8 @@ contract DeployCompound is Script {
         // oscarToken underlying token
         OscarToken oscarToken = new OscarToken("OscarToken", "OTK");
         OscarToken oscarToken2 = new OscarToken("OscarToken2", "OTK2");
+        oscarTokenAddress = address(oscarToken);
+        oscarToken2Address = address(oscarToken2);
         // cErc20Delegate
         CErc20Delegate cErc20Delegate = new CErc20Delegate();
         // cErc20Delegator constructor arguments
@@ -79,9 +83,9 @@ contract DeployCompound is Script {
             address(oscarToken),
             ComptrollerG7(address(unitroller)),
             interestRateModel,
-            1, // initialExchangeRateMantissa 1:1
-            "OscarCompound",
-            "OCD",
+            1 * 1e18, // initialExchangeRateMantissa 1:1
+            "OscarCompound1",
+            "OCD1",
             18,
             admin,
             address(cErc20Delegate),
@@ -91,24 +95,17 @@ contract DeployCompound is Script {
             address(oscarToken2),
             ComptrollerG7(address(unitroller)),
             interestRateModel,
-            1, // initialExchangeRateMantissa 1:1
-            "OscarCompound",
-            "OCD",
+            1 * 1e18, // initialExchangeRateMantissa 1:1
+            "OscarCompound2",
+            "OCD2",
             18,
             admin,
             address(cErc20Delegate),
             ""
         );
-        oracle.setUnderlyingPrice(CToken(address(cToken1)), 1 * 1e18);
-        oracle.setUnderlyingPrice(CToken(address(cToken2)), 100 * 1e18);
-        ComptrollerG7(address(unitroller))._supportMarket(CToken(address(cToken1)));
-        ComptrollerG7(address(unitroller))._setCloseFactor(5e17);
-        ComptrollerG7(address(unitroller))._supportMarket(CToken(address(cToken2)));
-        ComptrollerG7(address(unitroller))._setCollateralFactor(CToken(address(cToken2)), 5e17);
+        // add underlying token to oracle
         cToken1Address = payable(address(cToken1));
         cToken2Address = payable(address(cToken2));
-        oscarTokenAddress = address(oscarToken);
-        oscarToken2Address = address(oscarToken2);
         vm.stopPrank();
         // vm.stopBroadcast();
     }

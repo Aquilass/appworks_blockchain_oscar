@@ -2089,8 +2089,8 @@
       }
     },
     "script/compound.s.sol": {
-      "lastModificationDate": 1702223040595,
-      "contentHash": "1b72e0fb5c3973c0525082e26a8a2b6c",
+      "lastModificationDate": 1702231556039,
+      "contentHash": "d54fdc4a08f30131a2201b23dddfd54a",
       "sourceName": "script/compound.s.sol",
       "solcConfig": {
         "settings": {
@@ -2220,8 +2220,8 @@
       }
     },
     "test/compound.t.sol": {
-      "lastModificationDate": 1702222071448,
-      "contentHash": "469432a2016f62692b96909d0704841e",
+      "lastModificationDate": 1702238979360,
+      "contentHash": "3ece8d10843d6b8d5d8d5cb71635ba84",
       "sourceName": "test/compound.t.sol",
       "solcConfig": {
         "settings": {
@@ -2258,7 +2258,7 @@
         "lib/compound-protocol/contracts\\CErc20Delegate.sol",
         "lib/compound-protocol/contracts\\CErc20Delegator.sol",
         "lib/compound-protocol/contracts\\CToken.sol",
-        "lib/compound-protocol/contracts/CTokenInterfaces.sol",
+        "lib/compound-protocol/contracts\\CTokenInterfaces.sol",
         "lib/compound-protocol/contracts\\ComptrollerG7.sol",
         "lib/compound-protocol/contracts\\ComptrollerInterface.sol",
         "lib/compound-protocol/contracts/ComptrollerStorage.sol",
