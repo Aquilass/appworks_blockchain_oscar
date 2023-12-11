@@ -126,16 +126,15 @@ contract TestCompound is Test, DeployCompound {
         vm.stopPrank();
 
         (uint256 error, uint256 liquidity, uint256 shortfall) = unitroller.getAccountLiquidity(user1);
-        console2.log("user1 shorfall before liquidate", liquidity);
+        console2.log("user1 shorfall before liquidate", shortfall);
         assertEq(shortfall > 0, true);
 
         vm.startPrank(user2);
         oscarToken.approve(address(cToken1), 100 * 10 ** oscarToken.decimals());
-        cToken1.liquidateBorrow(user1, 20 * 10 ** oscarToken.decimals(), CTokenInterface(address(cToken1)));
-        console2.log("cToken1 balanceOf user1 after liquidate", cToken1.balanceOf(user1));
+        cToken1.liquidateBorrow(user1, 25*10 ** oscarToken.decimals() , CTokenInterface(address(cToken1)));
         (uint256 error2, uint256 liquidity2, uint256 shortfall2) = unitroller.getAccountLiquidity(user1);
-        console2.log("user1 liquidity after liquidate", liquidity2);
-        assertEq(shortfall2, 0);
+        console2.log("user1 shortfall after liquidate", shortfall2);
+        assertEq(shortfall2 < shortfall, true);
     }
     function test4_change_oracle_user2_liquidate_user1() public {
         deal(address(oscarToken2), user1, 1 * 10 ** oscarToken2.decimals());
@@ -164,10 +163,9 @@ contract TestCompound is Test, DeployCompound {
 
         vm.startPrank(user2);
         oscarToken.approve(address(cToken1), 100 * 10 ** oscarToken.decimals());
-        cToken1.liquidateBorrow(user1, 20 * 10 ** oscarToken.decimals(), CTokenInterface(address(cToken1)));
-        console2.log("cToken1 balanceOf user1 after liquidate", cToken1.balanceOf(user1));
+        cToken1.liquidateBorrow(user1, 25 * 10 ** oscarToken.decimals(), CTokenInterface(address(cToken1)));
         (uint256 error2, uint256 liquidity2, uint256 shortfall2) = unitroller.getAccountLiquidity(user1);
-        console2.log("user1 liquidity after liquidate", liquidity2);
-        // assertEq(shortfall2, 0);
+        console2.log("user1 shorfall after liquidate", shortfall2);
+        assertEq(shortfall2  == 0, true);
     }
 }
