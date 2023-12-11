@@ -83,7 +83,7 @@ contract DeployCompound is Script {
             address(oscarToken),
             ComptrollerG7(address(unitroller)),
             interestRateModel,
-            1 * 1e18, // initialExchangeRateMantissa 1:1
+            1e18, // initialExchangeRateMantissa 1:1
             "OscarCompound1",
             "OCD1",
             18,
@@ -95,7 +95,7 @@ contract DeployCompound is Script {
             address(oscarToken2),
             ComptrollerG7(address(unitroller)),
             interestRateModel,
-            1 * 1e18, // initialExchangeRateMantissa 1:1
+            1e18, // initialExchangeRateMantissa 1:1
             "OscarCompound2",
             "OCD2",
             18,

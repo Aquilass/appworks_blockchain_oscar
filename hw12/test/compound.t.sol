@@ -18,6 +18,8 @@ import "../script/compound.s.sol";
 contract TestCompound is Test, DeployCompound {
     address public user1;
     address public user2;
+    address public user3;
+    
     address public admin;
     uint256 initialCErc20Balance;
     CErc20Delegator public cToken1;
@@ -41,20 +43,27 @@ contract TestCompound is Test, DeployCompound {
 
         user1 = makeAddr("user1");
         user2 = makeAddr("user2");
+        user3 = makeAddr("User3");
+        deal(address(oscarToken), user3, 100 ether);
         admin = address(adminAddress);
         vm.startPrank(admin);
         // add cToken to comptroller
         unitroller._supportMarket(CToken(address(cToken1Address)));
         unitroller._supportMarket(CToken(address(cToken2Address)));
         //test3 user1 borrow/repay
-        oracle.setUnderlyingPrice(CToken(address(cToken1Address)), 1 * 1e18);
-        oracle.setUnderlyingPrice(CToken(address(cToken2Address)), 100 * 1e18);
+        oracle.setUnderlyingPrice(CToken(address(cToken1Address)), 1e18);
+        oracle.setUnderlyingPrice(CToken(address(cToken2Address)), 1e20);
         unitroller._setCollateralFactor(CToken(address(cToken2Address)), 5e17);
-        // deal token to ctoken1 and ctoken2 to let borrower borrow, and avoid BorrowCashNotAvailable()
-        deal(address(oscarToken), address(cToken1), 1000000 * 10 ** oscarToken.decimals());
-        deal(address(oscarToken2), address(cToken2), 1000000 * 10 ** oscarToken2.decimals());
         //test6
         unitroller._setCloseFactor(5e17);
+        // deal token to ctoken1 and ctoken2 to let borrower borrow, and avoid BorrowCashNotAvailable()        
+        vm.startPrank(user3);
+        oscarToken.approve(address(cToken1), type(uint256).max);
+        cToken1.mint(100 ether);
+        vm.stopPrank();
+        // deal(address(oscarToken), address(cToken1), 1000000 * 10 ** oscarToken.decimals());
+        // deal(address(oscarToken2), address(cToken2), 1000000 * 10 ** oscarToken2.decimals());
+
 
         vm.stopPrank();
     }
@@ -113,7 +122,7 @@ contract TestCompound is Test, DeployCompound {
 
         vm.stopPrank();
         vm.startPrank(admin);
-        unitroller._setCollateralFactor(CToken(address(cToken2Address)), 1);
+        unitroller._setCollateralFactor(CToken(address(cToken2Address)), 2e17);
         vm.stopPrank();
 
         (uint256 error, uint256 liquidity, uint256 shortfall) = unitroller.getAccountLiquidity(user1);
@@ -126,7 +135,7 @@ contract TestCompound is Test, DeployCompound {
         console2.log("cToken1 balanceOf user1 after liquidate", cToken1.balanceOf(user1));
         (uint256 error2, uint256 liquidity2, uint256 shortfall2) = unitroller.getAccountLiquidity(user1);
         console2.log("user1 liquidity after liquidate", liquidity2);
-        // assertEq(shortfall2, 0);
+        assertEq(shortfall2, 0);
     }
     function test4_change_oracle_user2_liquidate_user1() public {
         deal(address(oscarToken2), user1, 1 * 10 ** oscarToken2.decimals());
@@ -146,7 +155,7 @@ contract TestCompound is Test, DeployCompound {
 
         vm.stopPrank();
         vm.startPrank(admin);
-        oracle.setUnderlyingPrice(CToken(address(cToken2Address)), 1);
+        oracle.setUnderlyingPrice(CToken(address(cToken2Address)), 5e19);
         vm.stopPrank();
 
         (uint256 error, uint256 liquidity, uint256 shortfall) = unitroller.getAccountLiquidity(user1);

@@ -2089,8 +2089,8 @@
       }
     },
     "script/compound.s.sol": {
-      "lastModificationDate": 1702231556039,
-      "contentHash": "d54fdc4a08f30131a2201b23dddfd54a",
+      "lastModificationDate": 1702256146273,
+      "contentHash": "3017d9e7dfa86856532ed2e8c41c6c8d",
       "sourceName": "script/compound.s.sol",
       "solcConfig": {
         "settings": {
@@ -2127,7 +2127,7 @@
         "lib/compound-protocol/contracts\\CErc20Delegate.sol",
         "lib/compound-protocol/contracts\\CErc20Delegator.sol",
         "lib/compound-protocol/contracts\\CToken.sol",
-        "lib/compound-protocol/contracts/CTokenInterfaces.sol",
+        "lib/compound-protocol/contracts\\CTokenInterfaces.sol",
         "lib/compound-protocol/contracts\\ComptrollerG7.sol",
         "lib/compound-protocol/contracts\\ComptrollerInterface.sol",
         "lib/compound-protocol/contracts/ComptrollerStorage.sol",
@@ -2220,8 +2220,8 @@
       }
     },
     "test/compound.t.sol": {
-      "lastModificationDate": 1702254323969,
-      "contentHash": "306050f8d00bc71149c685fbf136aafd",
+      "lastModificationDate": 1702257847908,
+      "contentHash": "d773584f8fa04850d87c57b6c2c7ea4e",
       "sourceName": "test/compound.t.sol",
       "solcConfig": {
         "settings": {
