@@ -4,3 +4,11 @@
 [submodule "hw11/FlashSwapPractice/lib/v2-core"]
 	path = hw11/FlashSwapPractice/lib/v2-core
 	url = https://github.com/Uniswap/v2-core
+[submodule "hw12/lib/compound-protocol"]
+	path = hw12/lib/compound-protocol
+	url = https://github.com/compound-finance/compound-protocol
+[submodule "lib\\compound-protocol"]
+	branch = master
+[submodule "hw12/lib/openzeppelin-contracts"]
+	path = hw12/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
