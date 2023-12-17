@@ -11,6 +11,181 @@
     ]
   },
   "files": {
+    "lib/aave-v3-core/contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol": {
+      "lastModificationDate": 1702803784177,
+      "contentHash": "725ead251aa9926b6020fe1a348b6484",
+      "sourceName": "lib/aave-v3-core/contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/aave-v3-core/contracts/interfaces/IPool.sol",
+        "lib/aave-v3-core/contracts/interfaces/IPoolAddressesProvider.sol",
+        "lib/aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IFlashLoanSimpleReceiver": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IFlashLoanSimpleReceiver.sol\\IFlashLoanSimpleReceiver.json"
+        }
+      }
+    },
+    "lib/aave-v3-core/contracts/interfaces/IPool.sol": {
+      "lastModificationDate": 1702803784181,
+      "contentHash": "924060c42a972a40d00e4f26fd4a227e",
+      "sourceName": "lib/aave-v3-core/contracts/interfaces/IPool.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/aave-v3-core/contracts/interfaces/IPoolAddressesProvider.sol",
+        "lib/aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IPool": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IPool.sol\\IPool.json"
+        }
+      }
+    },
+    "lib/aave-v3-core/contracts/interfaces/IPoolAddressesProvider.sol": {
+      "lastModificationDate": 1702803784182,
+      "contentHash": "b99cd20f446f510dd21c469b0419fe50",
+      "sourceName": "lib/aave-v3-core/contracts/interfaces/IPoolAddressesProvider.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IPoolAddressesProvider": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IPoolAddressesProvider.sol\\IPoolAddressesProvider.json"
+        }
+      }
+    },
+    "lib/aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol": {
+      "lastModificationDate": 1702803784201,
+      "contentHash": "bbf7386ed4f6f471521c27e64d97892f",
+      "sourceName": "lib/aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "DataTypes": {
+          "0.8.23+commit.f704f362.Windows.msvc": "DataTypes.sol\\DataTypes.json"
+        }
+      }
+    },
     "lib/compound-protocol/contracts/CErc20.sol": {
       "lastModificationDate": 1702206323596,
       "contentHash": "8cd3ad8e88c9d4c65baeee895033db8c",
@@ -2088,9 +2263,221 @@
         }
       }
     },
+    "lib/v2-core/contracts/interfaces/IUniswapV2Callee.sol": {
+      "lastModificationDate": 1702804065828,
+      "contentHash": "dee30d5845c0662c462da74fbe109539",
+      "sourceName": "lib/v2-core/contracts/interfaces/IUniswapV2Callee.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "IUniswapV2Callee": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IUniswapV2Callee.sol\\IUniswapV2Callee.json"
+        }
+      }
+    },
+    "lib/v2-core/contracts/interfaces/IUniswapV2Factory.sol": {
+      "lastModificationDate": 1702804065828,
+      "contentHash": "51d78f670a7cb6d7aa4d8096f82a99c6",
+      "sourceName": "lib/v2-core/contracts/interfaces/IUniswapV2Factory.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "IUniswapV2Factory": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IUniswapV2Factory.sol\\IUniswapV2Factory.json"
+        }
+      }
+    },
+    "lib/v2-core/contracts/interfaces/IUniswapV2Pair.sol": {
+      "lastModificationDate": 1702804065829,
+      "contentHash": "d021d78f40daea7a0f06e1d2eed0e968",
+      "sourceName": "lib/v2-core/contracts/interfaces/IUniswapV2Pair.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "IUniswapV2Pair": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IUniswapV2Pair.sol\\IUniswapV2Pair.json"
+        }
+      }
+    },
+    "lib/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol": {
+      "lastModificationDate": 1702804191383,
+      "contentHash": "9afab4f62c4c89da823ae70d778ac67c",
+      "sourceName": "lib/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {
+        "IUniswapV2Router01": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IUniswapV2Router01.sol\\IUniswapV2Router01.json"
+        }
+      }
+    },
+    "lib/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
+      "lastModificationDate": 1702804191383,
+      "contentHash": "80fe41a75f324f97077b644aada14867",
+      "sourceName": "lib/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol"
+      ],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {
+        "IUniswapV2Router02": {
+          "0.8.23+commit.f704f362.Windows.msvc": "IUniswapV2Router02.sol\\IUniswapV2Router02.json"
+        }
+      }
+    },
     "script/compound.s.sol": {
-      "lastModificationDate": 1702256146273,
-      "contentHash": "3017d9e7dfa86856532ed2e8c41c6c8d",
+      "lastModificationDate": 1702802265015,
+      "contentHash": "2dab1793cc596d27c5c547b071df006f",
       "sourceName": "script/compound.s.sol",
       "solcConfig": {
         "settings": {
@@ -2168,6 +2555,159 @@
       "artifacts": {
         "DeployCompound": {
           "0.8.23+commit.f704f362.Windows.msvc": "compound.s.sol\\DeployCompound.json"
+        }
+      }
+    },
+    "script/flashloan.s.sol": {
+      "lastModificationDate": 1702807475904,
+      "contentHash": "2c5df2cffaab9230cde4a9b436a6a03d",
+      "sourceName": "script/flashloan.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/compound-protocol/contracts/CErc20.sol",
+        "lib/compound-protocol/contracts\\CErc20Delegate.sol",
+        "lib/compound-protocol/contracts\\CErc20Delegator.sol",
+        "lib/compound-protocol/contracts\\CToken.sol",
+        "lib/compound-protocol/contracts\\CTokenInterfaces.sol",
+        "lib/compound-protocol/contracts\\ComptrollerG7.sol",
+        "lib/compound-protocol/contracts\\ComptrollerInterface.sol",
+        "lib/compound-protocol/contracts/ComptrollerStorage.sol",
+        "lib/compound-protocol/contracts/EIP20Interface.sol",
+        "lib/compound-protocol/contracts/EIP20NonStandardInterface.sol",
+        "lib/compound-protocol/contracts/ErrorReporter.sol",
+        "lib/compound-protocol/contracts/ExponentialNoError.sol",
+        "lib/compound-protocol/contracts/Governance/Comp.sol",
+        "lib/compound-protocol/contracts\\InterestRateModel.sol",
+        "lib/compound-protocol/contracts/PriceOracle.sol",
+        "lib/compound-protocol/contracts\\SimplePriceOracle.sol",
+        "lib/compound-protocol/contracts\\Unitroller.sol",
+        "lib/compound-protocol/contracts\\WhitePaperInterestRateModel.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src\\Script.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdStyle.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src\\console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/forge-std/src/mocks/MockERC20.sol",
+        "lib/forge-std/src/mocks/MockERC721.sol",
+        "lib/forge-std/src/safeconsole.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts\\token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src\\OscarToken.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "DeployCompound": {
+          "0.8.23+commit.f704f362.Windows.msvc": "flashloan.s.sol\\DeployCompound.json"
+        }
+      }
+    },
+    "src/FlashLoanLiquidate.sol": {
+      "lastModificationDate": 1702812880104,
+      "contentHash": "336ae8f0951d7a440c6b92956458f8bc",
+      "sourceName": "src/FlashLoanLiquidate.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/aave-v3-core\\contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol",
+        "lib/aave-v3-core/contracts/interfaces/IPool.sol",
+        "lib/aave-v3-core/contracts/interfaces/IPoolAddressesProvider.sol",
+        "lib/aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol",
+        "lib/compound-protocol/contracts\\CErc20Delegator.sol",
+        "lib/compound-protocol/contracts\\CToken.sol",
+        "lib/compound-protocol/contracts\\CTokenInterfaces.sol",
+        "lib/compound-protocol/contracts\\ComptrollerInterface.sol",
+        "lib/compound-protocol/contracts/EIP20Interface.sol",
+        "lib/compound-protocol/contracts/EIP20NonStandardInterface.sol",
+        "lib/compound-protocol/contracts/ErrorReporter.sol",
+        "lib/compound-protocol/contracts/ExponentialNoError.sol",
+        "lib/compound-protocol/contracts\\InterestRateModel.sol",
+        "lib/forge-std/src\\console2.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts\\token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/v2-core/contracts\\interfaces/IUniswapV2Callee.sol",
+        "lib/v2-core/contracts\\interfaces/IUniswapV2Factory.sol",
+        "lib/v2-core/contracts\\interfaces/IUniswapV2Pair.sol",
+        "lib/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
+        "lib/v2-periphery/contracts\\interfaces/IUniswapV2Router02.sol"
+      ],
+      "versionRequirement": "^0.8.19",
+      "artifacts": {
+        "AaveFlashLoan": {
+          "0.8.23+commit.f704f362.Windows.msvc": "FlashLoanLiquidate.sol\\AaveFlashLoan.json"
+        },
+        "ISwapRouter": {
+          "0.8.23+commit.f704f362.Windows.msvc": "FlashLoanLiquidate.sol\\ISwapRouter.json"
         }
       }
     },
@@ -2305,6 +2845,105 @@
       "artifacts": {
         "TestCompound": {
           "0.8.23+commit.f704f362.Windows.msvc": "compound.t.sol\\TestCompound.json"
+        }
+      }
+    },
+    "test/flashloan.t.sol": {
+      "lastModificationDate": 1702812880696,
+      "contentHash": "f87ad54e030d231e098420b7c481a631",
+      "sourceName": "test/flashloan.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "useLiteralContent": false,
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "viaIR": true,
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/aave-v3-core\\contracts/flashloan/interfaces/IFlashLoanSimpleReceiver.sol",
+        "lib/aave-v3-core/contracts/interfaces/IPool.sol",
+        "lib/aave-v3-core/contracts/interfaces/IPoolAddressesProvider.sol",
+        "lib/aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol",
+        "lib/compound-protocol/contracts/CErc20.sol",
+        "lib/compound-protocol/contracts\\CErc20Delegate.sol",
+        "lib/compound-protocol/contracts\\CErc20Delegator.sol",
+        "lib/compound-protocol/contracts\\CToken.sol",
+        "lib/compound-protocol/contracts\\CTokenInterfaces.sol",
+        "lib/compound-protocol/contracts\\ComptrollerG7.sol",
+        "lib/compound-protocol/contracts\\ComptrollerInterface.sol",
+        "lib/compound-protocol/contracts/ComptrollerStorage.sol",
+        "lib/compound-protocol/contracts/EIP20Interface.sol",
+        "lib/compound-protocol/contracts/EIP20NonStandardInterface.sol",
+        "lib/compound-protocol/contracts/ErrorReporter.sol",
+        "lib/compound-protocol/contracts/ExponentialNoError.sol",
+        "lib/compound-protocol/contracts/Governance/Comp.sol",
+        "lib/compound-protocol/contracts\\InterestRateModel.sol",
+        "lib/compound-protocol/contracts/PriceOracle.sol",
+        "lib/compound-protocol/contracts\\SimplePriceOracle.sol",
+        "lib/compound-protocol/contracts\\Unitroller.sol",
+        "lib/compound-protocol/contracts\\WhitePaperInterestRateModel.sol",
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src\\Script.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdStyle.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src\\Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src\\console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/forge-std/src/mocks/MockERC20.sol",
+        "lib/forge-std/src/mocks/MockERC721.sol",
+        "lib/forge-std/src/safeconsole.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts\\token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/v2-core/contracts\\interfaces/IUniswapV2Callee.sol",
+        "lib/v2-core/contracts\\interfaces/IUniswapV2Factory.sol",
+        "lib/v2-core/contracts\\interfaces/IUniswapV2Pair.sol",
+        "lib/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
+        "lib/v2-periphery/contracts\\interfaces/IUniswapV2Router02.sol",
+        "script\\flashloan.s.sol",
+        "src\\FlashLoanLiquidate.sol",
+        "src\\OscarToken.sol"
+      ],
+      "versionRequirement": "^0.8.16",
+      "artifacts": {
+        "TestAAVEV3": {
+          "0.8.23+commit.f704f362.Windows.msvc": "flashloan.t.sol\\TestAAVEV3.json"
         }
       }
     }

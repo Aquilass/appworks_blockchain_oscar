@@ -24,19 +24,30 @@ contract DeployCompound is Script {
     address oscarTokenAddress;
     address adminAddress;
     address oracleAddress;
-    address payable cToken1Address;
-    address payable cToken2Address;
+    address payable cUSDCAddress;
+    address payable cUNIAddress;
     address unitrollerAddress;
+
+    // address public USDC;
+    // ERC20 public usdc;
+    // address public UNI;
+    // ERC20 public uni;
+
     function setUp() public virtual {
         //create a new fork from mainnet
         //Fork Ethereum mainnet at block 17465000(Reference)
-        uint256 forkId = vm.createFork(vm.envString("MAINNET_RPC_URL"), 17465000);
+        uint256 forkId = vm.createSelectFork(vm.envString("MAINNET_RPC_URL"), 17465000);
         
         //create a new fork from sepolia
         // uint256 forkId = vm.createFork(vm.envString("SEPOLIA_RPC_URL"));
         vm.selectFork(forkId);
         // vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
+        
 
+        address USDC = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
+        ERC20 usdc = ERC20(USDC);
+        address UNI = 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984;
+        ERC20 uni = ERC20(UNI);
 
         // local admin account
         address _admin = makeAddr("admin");
@@ -81,33 +92,33 @@ contract DeployCompound is Script {
         // address payable admin_,
         // address implementation_,
         // bytes memory becomeImplementationData
-        CErc20Delegator cToken1 = new CErc20Delegator(
-            address(oscarToken),
+        CErc20Delegator cUSDC = new CErc20Delegator(
+            address(USDC),
             ComptrollerG7(address(unitroller)),
             interestRateModel,
-            1e18, // initialExchangeRateMantissa 1:1
-            "OscarCompound1",
-            "OCD1",
+            1e6, // initialExchangeRateMantissa 1:1
+            "USDC Compound",
+            "cUSDC",
             18,
             admin,
             address(cErc20Delegate),
             ""
         );
-        CErc20Delegator cToken2 = new CErc20Delegator(
-            address(oscarToken2),
+        CErc20Delegator cUNI = new CErc20Delegator(
+            address(UNI),
             ComptrollerG7(address(unitroller)),
             interestRateModel,
             1e18, // initialExchangeRateMantissa 1:1
-            "OscarCompound2",
-            "OCD2",
+            "UNI Compound",
+            "cUNI",
             18,
             admin,
             address(cErc20Delegate),
             ""
         );
         // add underlying token to oracle
-        cToken1Address = payable(address(cToken1));
-        cToken2Address = payable(address(cToken2));
+        cUSDCAddress = payable(address(cUSDC));
+        cUNIAddress = payable(address(cUNI));
         vm.stopPrank();
         // vm.stopBroadcast();
     }
@@ -157,7 +168,7 @@ contract DeployCompound is Script {
     //     // address payable admin_,
     //     // address implementation_,
     //     // bytes memory becomeImplementationData
-    //     CErc20Delegator cToken1 = new CErc20Delegator(
+    //     CErc20Delegator cUSDC = new CErc20Delegator(
     //         address(oscarToken),
     //         ComptrollerG7(address(unitroller)),
     //         interestRateModel,
@@ -169,7 +180,7 @@ contract DeployCompound is Script {
     //         address(cErc20Delegate),
     //         ""
     //     );
-    //     CErc20Delegator cToken2 = new CErc20Delegator(
+    //     CErc20Delegator cUNI = new CErc20Delegator(
     //         address(oscarToken2),
     //         ComptrollerG7(address(unitroller)),
     //         interestRateModel,

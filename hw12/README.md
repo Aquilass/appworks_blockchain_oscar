@@ -23,3 +23,7 @@ forge script script/compound.s.sol:DeployCompound --via-ir
 ```git bash
 forge test -vvvvv --via-ir 
 ```
+### Run Test --match-test
+``` git bash
+forge test -vvvv --match-path test/flashloan.t.sol --via-ir
+```
